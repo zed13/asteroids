@@ -8,6 +8,7 @@ class Player(CircleShape):
     def __init__(self, x, y):
         super().__init__(x, y, const.PLAYER_RADIUS)
         self.rotation = 0
+        self.timer = 0.0
 
     # in the player class
     def triangle(self):
@@ -57,4 +58,7 @@ class Player(CircleShape):
 
         # shooting
         if keys[pygame.K_SPACE]:
-            self.shot()
+            self.timer -= dt
+            if self.timer <= 0:
+                self.shot()
+                self.timer = const.PLAYER_SHOOT_COOLDOWN
