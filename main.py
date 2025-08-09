@@ -45,7 +45,7 @@ def main():
             for shot in shots:
                 if shot.colide_with(asteroid):
                     shot.kill()
-                    asteroid.kill()
+                    asteroid.split()
                     break
         for entity in drawable:
             entity.draw(screen)
