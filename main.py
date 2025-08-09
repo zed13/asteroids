@@ -1,15 +1,22 @@
 import pygame
-from constants import *
+import constants as const
 
 def main():
     print("Starting Asteroids!")
-    print(f"Screen width: {SCREEN_WIDTH}")
-    print(f"Screen height: {SCREEN_HEIGHT}")
-    print(f"Asteroid min radius: {ASTEROID_MIN_RADIUS}")
-    print(f"Asteroid kinds: {ASTEROID_KINDS}")
-    print(f"Asteroid spawn rate: {ASTEROID_SPAWN_RATE}")
-    print(f"Asteroid max radius: {ASTEROID_MAX_RADIUS}")
-
+    print(f"Screen width: {const.SCREEN_WIDTH}")
+    print(f"Screen height: {const.SCREEN_HEIGHT}")
+    print(f"Asteroid min radius: {const.ASTEROID_MIN_RADIUS}")
+    print(f"Asteroid kinds: {const.ASTEROID_KINDS}")
+    print(f"Asteroid spawn rate: {const.ASTEROID_SPAWN_RATE}")
+    print(f"Asteroid max radius: {const.ASTEROID_MAX_RADIUS}")
+    pygame.init()
+    screen = pygame.display.set_mode((const.SCREEN_WIDTH, const.SCREEN_HEIGHT))
+    while True:
+        screen.fill("black")
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                return
+        pygame.display.flip()
 
 if __name__ == "__main__":
     main()
